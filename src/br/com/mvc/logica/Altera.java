@@ -2,11 +2,14 @@ package br.com.mvc.logica;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.taglibs.standard.lang.jstl.parser.ParseException;
 
 import br.com.conectaBanco.ConnectionFactory;
 import br.com.dao.ContatoDao;
@@ -19,45 +22,28 @@ public class Altera implements Logica {
 	public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
 
 		Connection con = new ConnectionFactory().getConnection();
-		System.out.println("AQUI TBM PASSOU");
 
-		// interface PreparedStatement para pesquisar no banco e montar o comando SQL
-		PreparedStatement stmt = con.prepareStatement("select contatos where id=?");
+		Contato contato = new Contato();
+		// interface PreparedStatement para pesquisar no banco e montar o comando SQL,
+		String sql = "update contatos set usuario=?, email=?, telefone=?," + "dataNascimento=? where id=?";
 
-		req.getParameter("id");
-		
-		ContatoDao dao = new ContatoDao();
+		try {
+			PreparedStatement stmt = con.prepareStatement(sql);
 
-		long id = Long.parseLong(req.getParameter("id"));
+			stmt.setString(1, contato.getUsuario());
+			stmt.setString(2, contato.getEmail());
+			stmt.setString(3, contato.getTelefone());
 
-		Contato contato = dao.pesquisaBanco(id);
+			stmt.setLong(5, contato.getId());
+			stmt.execute();
+			stmt.close();
 
-	
-		
-		String nome = req.getParameter("nome");
-		String email = req.getParameter("email");
-		String endereco = req.getParameter("endereco");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "erro.html"; // para a execução do método
 
-		System.out.println(id);
-		System.out.println(nome);
-		System.out.println(email);
-		System.out.println(endereco);
-
-		req.setAttribute("teste", contato);
-
-		
-		System.out.println(id + "" + nome);
-
-		System.out.println("TENTANDO JOGAR PARA A CLASSE ALTERAR");
-
-		dao.altera(contato);
-
-		stmt.executeUpdate();
-		stmt.close();
-		con.close();
-
+		}
 		return "/WEB-INF/jsp/contato-adicionado.jsp";
 
 	}
-
 }

@@ -6,9 +6,9 @@ public class Contato {
 	// UMA JAVA BEAN
 
 	private Long id;
-	private String nome;
+	private String usuario;
 	private String email;
-	private String endereco;
+	private String telefone;
 	private Calendar dataNascimento;
 
 	public Long getId() {
@@ -19,12 +19,20 @@ public class Contato {
 		this.id = novo;
 	}
 
-	public String getNome() {
-		return this.nome;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setNome(String novo) {
-		this.nome = novo;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
 	public String getEmail() {
@@ -33,14 +41,6 @@ public class Contato {
 
 	public void setEmail(String novo) {
 		this.email = novo;
-	}
-
-	public String getEndereco() {
-		return this.endereco;
-	}
-
-	public void setEndereco(String novo) {
-		this.endereco = novo;
 	}
 
 	public Calendar getDataNascimento() {

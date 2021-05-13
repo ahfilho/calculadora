@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h4 style="text-align:center">
-Copyright 2021 Arlindo Filho - Todos os direitos reservados
-
-</h4></body>
+	<h1>OLÁ SPRING MVC</h1>
+</body>
 </html>

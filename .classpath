@@ -8,22 +8,24 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_271">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
+			<attribute name="module" value="true"/>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/jstl.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/jstl-standard.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jstl.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jstl-standard.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/jakarta.el-api-3.0.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/jakarta.servlet.jsp.jstl-1.2.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/jakarta.servlet.jsp.jstl-api-1.2.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/jakarta.servlet-api-4.0.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/javax.servlet.jsp.jstl-api-1.2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/jstl-api-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/jstl-impl-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/mysql-connector-java-5.1.49.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/Nova pasta/jakarta.el-api-3.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/Nova pasta/jakarta.servlet.jsp.jstl-1.2.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/Nova pasta/jakarta.servlet.jsp.jstl-api-1.2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/Nova pasta/jakarta.servlet-api-4.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/Nova pasta/javax.servlet.jsp.jstl-api-1.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/Nova pasta/jstl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/Nova pasta/jstl-api-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/Nova pasta/jstl-impl-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/Nova pasta/jstl-standard.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/Nova pasta/mysql-connector-java-5.1.49.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Dinho/Desktop/Nova pasta/standard.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

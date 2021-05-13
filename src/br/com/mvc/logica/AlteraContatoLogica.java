@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -22,54 +23,27 @@ public class AlteraContatoLogica implements Logica {
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
 
-		System.out.println("passou aqui 1");
 
-		Connection con = new ConnectionFactory().getConnection();
-		System.out.println("chegou aqui 2");
+		  Connection con = new ConnectionFactory().getConnection();
+		  PreparedStatement stmt = con.prepareStatement("select * from contatos");
 
-		// interface PreparedStatement para pesquisar no banco e montar o comando SQL
-		PreparedStatement stmt = con.prepareStatement("select * from contatos");
+		  ResultSet rs = stmt.executeQuery();
 
-		// executa um select
-		ResultSet rs = stmt.executeQuery();
+		  // itera no ResultSet
+		  while (rs.next()) {
+		    String usuario = rs.getString("usuario");
+		    String email = rs.getString("email");
+		    String telefone = rs.getString("telefone");
+		    System.out.println(usuario + " _ " + email + "_"+ telefone);
+		  }
+		  
+		  stmt.close();
+		  con.close();
+		  
+//		req.setAttribute("contatos", contatos);
 
-		// itera no ResultSet
-		if (rs.next()) {
-
-			long id = rs.getLong("id");
-			String nome = rs.getString("nome");
-			String email = rs.getString("email");
-			String endereco = rs.getString("endereco");
-
-			System.out.println(id + "\n" + nome + " \n " + email + "\n" + endereco);
-		}
-		Contato contato = new Contato();
-		long id = Long.parseLong(req.getParameter("id"));
-		String nome = rs.getString("nome");
-		contato.setId(id);
-		contato.setNome(nome);
-
-		req.setAttribute("id", contato);
-
-		System.out.println("chegou aqui 3");
-
-		/*
-		 * Contato contato = new Contato();
-		 * 
-		 * req.setAttribute("testeEDITA", contato); long id =
-		 * Long.parseLong(req.getParameter("id")); String nome =
-		 * (String)req.getParameter("nome");
-		 * 
-		 * System.out.println("chegou aqui 4");
-		 * 
-		 * contato.setId(id);
-		 * 
-		 * 
-		 * contato.setNome(nome);
-		 */
 
 		return "/WEB-INF/jsp/alteracao.jsp";
-
 	}
 
 }

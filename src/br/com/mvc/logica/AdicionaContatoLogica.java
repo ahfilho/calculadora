@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.dao.ContatoDao;
 import br.com.model.Contato;
 
-public class AdicionaContatoLogica implements Logica{
+public class AdicionaContatoLogica implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {

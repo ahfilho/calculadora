@@ -43,15 +43,15 @@ public class ContatoDao {
 
 	public void adicionaNoBanco(Contato contato) {
 
-		String sql = "insert into contatos" + "(nome,email,endereco,dataNascimento)" + "values(?,?,?,?)";
+		String sql = "insert into contatos" + "(usuario,email,telefone,dataNascimento)" + "values(?,?,?,?)";
 		try {
 			// preparedStatement para inserção
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
 			// setando os valores que serão inseridos no banco
-			stmt.setString(1, contato.getNome());
+			stmt.setString(1, contato.getUsuario());
 			stmt.setString(2, contato.getEmail());
-			stmt.setString(3, contato.getEndereco());
+			stmt.setString(3, contato.getTelefone());
 			stmt.setDate(4, new java.sql.Date(contato.getDataNascimento().getTimeInMillis()));
 
 			// executa a operação
@@ -116,9 +116,9 @@ public class ContatoDao {
 				// criando o objeto Contato
 				Contato contato = new Contato();
 				contato.setId(rs.getLong("id"));
-				contato.setNome(rs.getString("nome"));
+				contato.setUsuario(rs.getString("usuario"));
 				contato.setEmail(rs.getString("email"));
-				contato.setEndereco(rs.getString("endereco"));
+				contato.setTelefone(rs.getString("telefone"));
 
 				// montando a data através do Calendar
 				Calendar data = Calendar.getInstance();
@@ -140,14 +140,14 @@ public class ContatoDao {
 	public void altera(Contato contato) {
 //recebe um contato
 		// os valores que serão atualizados na tabela contato
-		String sql = "update contatos set nome=?, email=?, endereco=?," + "dataNascimento=? where id=?";
+		String sql = "update contatos set usuario=?, email=?, telefone=?," + "dataNascimento=? where id=?";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
-			stmt.setString(1, contato.getNome());
+			stmt.setString(1, contato.getUsuario());
 			stmt.setString(2, contato.getEmail());
-			stmt.setString(3, contato.getEndereco());
+			stmt.setString(3, contato.getTelefone());
 			stmt.setDate(4, new Date(contato.getDataNascimento().getTimeInMillis()));
 
 			stmt.setLong(5, contato.getId());

@@ -9,25 +9,28 @@
 <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
 <html>
     <body>
-      <h1>Adiciona Contatos</h1>
+      <h1 style="text-align:center">Adicionar Usuários</h1>
       <br>
-            	<a href="mvc?logica=InicioLogica">Início</a>
+            	<h4 style="text-align:center"><a href="mvc?logica=InicioLogica">Início</a>
       <br>
               <a href="mvc?logica=ListaContatosLogica${contato.id}">Listar todos</a>
               <br>
       			
-      <hr />
+      			</h4>
+      <hr /> 
+      <h4 style="text-align:center">
    <form action="mvc?logica=Adiciona" method="post">
  
-    Nome: <input type="text" name="nome" /><br />
+    Usuario: <input type="text" name="usuario" /><br />
     E-mail: <input type="text" name="email" /><br />
-    Endereço: <input type="text" name="endereco" /><br />
+    Telefone: <input type="text" name="telefone" /><br />
     
     <!--  COLOCA UM CALENDARIO NO INPUT  -----  TAGFILES -->
     Data Nascimento: <teste:campoData id="dataNascimento" /><br />   
-
+	<br>
     <input type="submit" value="Gravar"/>
   </form>
+  </h4>
       <c:import url="/WEB-INF/jsp/rodape.jsp"/>
       
     </body>

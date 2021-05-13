@@ -2,9 +2,7 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.*, 
-    br.com.dao.*,
-    br.com.model.*"%>
+<%@ page import="java.util.*,  br.com.dao.*, br.com.model.*"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
@@ -25,27 +23,26 @@
 <body>
 
 	<div class="cabecalho">
-		<h2>LISTA DE CONTATOS</h2>
+		<h2 style="text-align:center">LISTA DE CONTATOS</h2>
 	</div>
 	<hr>
 	<!-- TAGLIB - INSTANDIANDO UMA POJO  --- aqui é criado o DAO-->
 
-	<!--  REMOVE o dao para nao instanciar mais o view
-<jsp:useBean id="dao" class="br.com.dao.ContatoDao"/>  -->
+	<!--r.com.dao.ContatoDao dao = new br.com.dao.ContatoDao();-->
 	<jsp:useBean id="contato" class="br.com.model.Contato" />
 	<!-- Variável dao / acessa o metodo list atraves da expression language -->
 
 	<!-- EEM SEGUIDA EXECUTAR UM LOOP PARA CARA CONTATO DENTRO DA COLEÇÃO-->
-
+	<h4 style="text-align:center">
 	<table border="1">
 		<td><h3>ID</h3></td>
 
 
-		<td><h3>NOME</h3></td>
+		<td><h3>Usuario</h3></td>
 
 		<td><h3>Email</h3></td>
 
-		<td><h3>Endereço</h3></td>
+		<td><h3>Telefone</h3></td>
 
 		<td><h3>Data Nasc.</h3></td>
 
@@ -58,8 +55,8 @@
 			<tr bgcolor="${id.count % 2 == 0?'aaee88': 'ffffff' }">
 
 				<td>${contato.id}</td>
-				<td>${contato.nome}</td>
-				<td>${contato.endereco}</td>
+				<td>${contato.usuario}</td>
+				<td>${contato.telefone}</td>
 				<td><c:if test="${not empty contato.email}">
 						<!-- VERIFICA SE O EMAIL ESTÁ PREENCHIDO OU NAO -->
 						<a href="mailto:${contato.email}">${contato.email}</a>
@@ -81,16 +78,18 @@
 				</td>
 			</tr>
 		</c:forEach>
+		<h4 style="text-align:center" >
 		<a href="mvc?logica=InicioLogica">INÍCIO</a>
 		<br>
 		<a href="mvc?logica=AdicionaContatoLogica">ADICIONAR CONTATO </a>
 		<br>
 		<br>
-
 		<br>
 
+</h4>
 
 	</table>
+	</h4>
 	<hr>
 	<c:import url="/WEB-INF/jsp/rodape.jsp"></c:import>
 
